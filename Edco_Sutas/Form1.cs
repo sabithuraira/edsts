@@ -1120,8 +1120,6 @@ namespace Edco_Sutas
         //no urut 36
         void cek_405()
         {
-            bool adasalah = false;
-
             for (int i = 225; i <= 278; i += 18)
             {
                 if (i == 225 || i == 243 || i == 261)
@@ -1135,6 +1133,172 @@ namespace Edco_Sutas
                 }
 
             }
+        }
+
+        //no urut 37
+        void cek_406()
+        {
+        }
+
+        //no urut 38
+        void cek_407()
+        {
+            for (int i = 225; i <= 278; i += 18)
+            {
+                int jarak_kolom = 4;
+
+                for (int k = 0; k < 4; ++k)
+                {
+                    if (!jika_terisi_maka_harus_terisi((i + 2 + (jarak_kolom * k)), (i + 2 + (jarak_kolom * k))))
+                    {
+                        tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "4.07", 38);
+                    }
+                }
+            }
+        }
+
+        //no urut 39
+        void cek_408()
+        {
+            for (int i = 225; i <= 278; i += 18)
+            {
+                if (!jika_terisi_maka_harus_terisi(i, i + 17))
+                {
+                    tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "4.08", 39);
+                }
+
+                if (!harus_terisi_berikut((i + 17), new[] { "1", "2", "3", "4", "5", "6", "7" }))
+                {
+                    tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "4.08", 39);
+                }
+            }
+        }
+
+        //no urut 40
+        void cek_409()
+        {
+            if (!pengecekan_nilai_produksi_utama(279, new[]{189, 198, 207, 216, 225, 243, 261}))
+            {
+                tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "4.09", 40);
+            }
+        }
+
+        //no urut 41
+        void cek_410()
+        {
+            if (!pengecekan_tenaga_kerja(280, 281, new[] { 189, 198, 207, 216, 225, 243, 261 }))
+            {
+                tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "4.10", 41);
+            }
+        }
+
+        //no urut 42
+        void cek_411()
+        {
+            if (!harus_terisi_berikut(282, new[] { "1", "2" }))
+            {
+                tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "4.11", 42);
+            }
+
+            if (!jika_salah_satu_terisi_maka_harus_terisi(282, new[] { 189, 198, 207, 216, 225, 243, 261 }))
+            {
+                tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "4.11", 42);
+            }
+        }
+        
+        
+        //no urut 43
+        void cek_412()
+        {
+            if (!harus_terisi_berikut(283, new[] { "1", "2" }))
+            {
+                tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "4.12", 43);
+            }
+
+            if (!jika_salah_satu_terisi_maka_harus_terisi(283, new[] { 189, 198, 207, 216, 225, 243, 261 }))
+            {
+                tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "4.12", 43);
+            }
+        }
+
+
+        //no urut 44
+        void cek_413()
+        {
+            if (!harus_terisi_berikut(284, new[] { "1", "2" }))
+            {
+                tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "4.13", 44);
+            }
+
+            if (!jika_salah_satu_terisi_maka_harus_terisi(284, new[] { 189, 198, 207, 216, 225, 243, 261 }))
+            {
+                tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "4.13", 44);
+            }
+        }
+
+
+        //digunakan untuk mengecek kolom komoditas yang memiliki nilai produksi paling besar selama setahun
+        //pengecekan dilakukan antara lain
+        //harus terisi jika ada isian minimal satu komoditas pada kategori tersebut
+        //isian harus terdapat pada daftar komoditas yang dikelola
+        bool pengecekan_nilai_produksi_utama(int text_komoditas, int[] text_list_komoditas)
+        {
+            bool hasil = true;
+
+            bool is_ada_daftar = false;
+            List<String> daftar_komoditas = new List<string>();
+
+            foreach (int komoditas in text_list_komoditas)
+            {
+                String text = "txt" + (komoditas);
+
+                if (this.Controls.Find(text, true)[0].Text.Length > 0)
+                {
+                    daftar_komoditas.Add(this.Controls.Find(text, true)[0].Text);
+                    is_ada_daftar = true;
+                }
+            }
+
+            if (is_ada_daftar && this.Controls.Find("txt" + (text_komoditas), true)[0].Text.Length == 0)
+            {
+                return false;
+            }
+
+            if (daftar_komoditas.Contains(this.Controls.Find("txt" + (text_komoditas), true)[0].Text))
+            {
+                return false;
+            }
+
+            return hasil;
+        }
+
+        //mengecek konsistensi jumlah tenaga kerja dan komoditas
+        //jika komoditas terisi maka salah satu isian tenaga kerja laki/perempuan harus terisi
+        bool pengecekan_tenaga_kerja(int text_laki, int text_perempuan, int[] text_list_komoditas)
+        {
+            bool hasil = true;
+
+            bool is_ada_daftar = false;
+            List<String> daftar_komoditas = new List<string>();
+
+            foreach (int komoditas in text_list_komoditas)
+            {
+                String text = "txt" + (komoditas);
+
+                if (this.Controls.Find(text, true)[0].Text.Length > 0)
+                {
+                    is_ada_daftar = true;
+                    break;
+                }
+            }
+
+            if (is_ada_daftar)
+            {
+                if(this.Controls.Find("txt" + (text_laki), true)[0].Text.Length == 0 && this.Controls.Find("txt" + (text_perempuan), true)[0].Text.Length == 0)
+                    return false;
+            }
+
+            return hasil;
         }
 
         //mengecek nilai suatu text harus berada dalam range parameter "option"
@@ -1191,6 +1355,32 @@ namespace Edco_Sutas
                 {
                     return false;
                 }
+            }
+
+            return hasil;
+        }
+
+        bool jika_salah_satu_terisi_maka_harus_terisi(int text, int[] text_list_komoditas)
+        {
+            bool hasil = true;
+
+            bool is_ada_daftar = false;
+            List<String> daftar_komoditas = new List<string>();
+
+            foreach (int komoditas in text_list_komoditas)
+            {
+                String text_kom = "txt" + (komoditas);
+
+                if (this.Controls.Find(text_kom, true)[0].Text.Length > 0)
+                {
+                    is_ada_daftar = true;
+                    break;
+                }
+            }
+
+            if (is_ada_daftar && this.Controls.Find("txt" + (text), true)[0].Text.Length == 0)
+            {
+                return false;
             }
 
             return hasil;
