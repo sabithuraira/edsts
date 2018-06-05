@@ -1117,7 +1117,7 @@ namespace Edco_Sutas
             }
         }
 
-        //no urut 36
+        //no urut 36 & 37
         void cek_405()
         {
             for (int i = 225; i <= 278; i += 18)
@@ -1135,12 +1135,12 @@ namespace Edco_Sutas
             }
         }
 
-        //no urut 37
+        //no urut 38
         void cek_406()
         {
         }
 
-        //no urut 38
+        //no urut 39, 40 & 41
         void cek_407()
         {
             for (int i = 225; i <= 278; i += 18)
@@ -1151,88 +1151,174 @@ namespace Edco_Sutas
                 {
                     if (!jika_terisi_maka_harus_terisi((i + 2 + (jarak_kolom * k)), (i + 2 + (jarak_kolom * k))))
                     {
-                        tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "4.07", 38);
+                        tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "4.07", 39);
                     }
                 }
             }
         }
 
-        //no urut 39
+        //no urut 42 & 43
         void cek_408()
         {
             for (int i = 225; i <= 278; i += 18)
             {
                 if (!jika_terisi_maka_harus_terisi(i, i + 17))
                 {
-                    tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "4.08", 39);
+                    tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "4.08", 42);
                 }
 
                 if (!harus_terisi_berikut((i + 17), new[] { "1", "2", "3", "4", "5", "6", "7" }))
                 {
-                    tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "4.08", 39);
+                    tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "4.08", 43);
                 }
             }
         }
 
-        //no urut 40
+        //no urut 44, 45, 46
         void cek_409()
         {
             if (!pengecekan_nilai_produksi_utama(279, new[]{189, 198, 207, 216, 225, 243, 261}))
             {
-                tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "4.09", 40);
+                tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "4.09", 44);
             }
         }
 
-        //no urut 41
+        //no urut 47
         void cek_410()
         {
             if (!pengecekan_tenaga_kerja(280, 281, new[] { 189, 198, 207, 216, 225, 243, 261 }))
             {
-                tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "4.10", 41);
+                tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "4.10", 47);
             }
         }
 
-        //no urut 42
+        //no urut 48, 49
         void cek_411()
         {
             if (!harus_terisi_berikut(282, new[] { "1", "2" }))
             {
-                tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "4.11", 42);
+                tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "4.11", 48);
             }
 
             if (!jika_salah_satu_terisi_maka_harus_terisi(282, new[] { 189, 198, 207, 216, 225, 243, 261 }))
             {
-                tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "4.11", 42);
+                tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "4.11", 49);
             }
         }
         
         
-        //no urut 43
+        //no urut 50, 51
         void cek_412()
         {
             if (!harus_terisi_berikut(283, new[] { "1", "2" }))
             {
-                tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "4.12", 43);
+                tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "4.12", 50);
             }
 
             if (!jika_salah_satu_terisi_maka_harus_terisi(283, new[] { 189, 198, 207, 216, 225, 243, 261 }))
             {
-                tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "4.12", 43);
+                tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "4.12", 51);
             }
         }
 
 
-        //no urut 44
+        //no urut 52, 53
         void cek_413()
         {
             if (!harus_terisi_berikut(284, new[] { "1", "2" }))
             {
-                tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "4.13", 44);
+                tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "4.13", 52);
             }
 
             if (!jika_salah_satu_terisi_maka_harus_terisi(284, new[] { 189, 198, 207, 216, 225, 243, 261 }))
             {
-                tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "4.13", 44);
+                tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "4.13", 53);
+            }
+        }
+
+        //54
+        void cek_501()
+        {
+            for (int i = 303; i <= 323; i += 10)
+            {
+                String text = "txt" + (i);
+                SQLquery = "select*from m_kom where KodeKom='" + this.Controls.Find(text, true)[0].Text + "' and FlagSubsektor='51'";
+                if (new KoneksiAccess().cekDataSQL(SQLquery) == false)
+                {
+                    tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "5.01", 54);
+                }
+            }
+        }
+
+        //55, 56
+        void cek_502()
+        {
+            for (int i = 288; i <= 330; i++)
+            {
+                if (i == 288 || i == 297 || i == 307 || i == 317 || i == 327)
+                {
+                    if(jika_salah_satu_terisi_maka_harus_terisi(i - 2, new[] {i, i+1, i+2, i+3})){
+                        tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "5.02", 55);
+                    }
+                }
+                
+            }
+        }
+
+        //57, 58
+        void cek_503()
+        {
+            for (int i = 285; i <= 324; i++)
+            {
+                if (i == 285 || i == 294 || i == 304 || i == 314 || i == 324)
+                {
+                    if (jika_salah_satu_terisi_maka_harus_terisi(i + 7, new[] { i, i + 1, i + 2}))
+                    {
+                        tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "5.03", 57);
+                    }
+
+                    if (jika_salah_satu_terisi_maka_harus_terisi(i + 8, new[] { i, i + 1, i + 2 }))
+                    {
+                        tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "5.03", 57);
+                    }
+                }
+
+                if (harus_terisi_berikut(i + 7, new[] { "1", "2", "3", "4", "5", "6", "7" }))
+                {
+                    tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "5.03", 58);
+                }
+
+
+                if (harus_terisi_berikut(i + 8, new[] { "1", "2", "3", "4", "5", "6", "7" }))
+                {
+                    tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "5.03", 58);
+                }
+            }
+        }
+
+        //59
+        void cek_504()
+        {
+            for (int i = 347; i <= 362; i += 15)
+            {
+                String text = "txt" + (i);
+                SQLquery = "select*from m_kom where KodeKom='" + this.Controls.Find(text, true)[0].Text + "' and FlagSubsektor='52'";
+                if (new KoneksiAccess().cekDataSQL(SQLquery) == false)
+                {
+                    tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "5.04", 59);
+                }
+            }
+        }
+
+        //60
+        void cek_505()
+        {
+            for (int i = 334; i <= 364; i += 15)
+            {
+                if (jika_salah_satu_terisi_maka_harus_terisi(i - 2, new[] { i, i + 1, i + 2, i + 3 }))
+                {
+                    tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "5.02", 55);
+                }
             }
         }
 
