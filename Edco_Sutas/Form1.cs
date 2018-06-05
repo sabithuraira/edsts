@@ -1257,7 +1257,7 @@ namespace Edco_Sutas
             {
                 if (i == 288 || i == 297 || i == 307 || i == 317 || i == 327)
                 {
-                    if(jika_salah_satu_terisi_maka_harus_terisi(i - 2, new[] {i, i+1, i+2, i+3})){
+                    if(!jika_salah_satu_terisi_maka_harus_terisi(i - 2, new[] {i, i+1, i+2, i+3})){
                         tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "5.02", 55);
                     }
                 }
@@ -1272,24 +1272,24 @@ namespace Edco_Sutas
             {
                 if (i == 285 || i == 294 || i == 304 || i == 314 || i == 324)
                 {
-                    if (jika_salah_satu_terisi_maka_harus_terisi(i + 7, new[] { i, i + 1, i + 2}))
+                    if (!jika_salah_satu_terisi_maka_harus_terisi(i + 7, new[] { i, i + 1, i + 2}))
                     {
                         tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "5.03", 57);
                     }
 
-                    if (jika_salah_satu_terisi_maka_harus_terisi(i + 8, new[] { i, i + 1, i + 2 }))
+                    if (!jika_salah_satu_terisi_maka_harus_terisi(i + 8, new[] { i, i + 1, i + 2 }))
                     {
                         tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "5.03", 57);
                     }
                 }
 
-                if (harus_terisi_berikut(i + 7, new[] { "1", "2", "3", "4", "5", "6", "7" }))
+                if (!harus_terisi_berikut(i + 7, new[] { "1", "2", "3", "4", "5", "6", "7" }))
                 {
                     tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "5.03", 58);
                 }
 
 
-                if (harus_terisi_berikut(i + 8, new[] { "1", "2", "3", "4", "5", "6", "7" }))
+                if (!harus_terisi_berikut(i + 8, new[] { "1", "2", "3", "4", "5", "6", "7" }))
                 {
                     tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "5.03", 58);
                 }
@@ -1315,9 +1315,105 @@ namespace Edco_Sutas
         {
             for (int i = 334; i <= 364; i += 15)
             {
-                if (jika_salah_satu_terisi_maka_harus_terisi(i - 2, new[] { i, i + 1, i + 2, i + 3 }))
+                int jarak = 3;
+                for (int j = 0; j < 4; ++j)
                 {
-                    tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "5.02", 55);
+                    int current_i = i + (jarak * j);
+                    if (!jika_terisi_maka_harus_terisi(current_i, current_i + 1))
+                    {
+                        tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "5.05", 60);
+                    }
+                }
+            }
+        }
+
+        //61, 62
+        void cek_506()
+        {
+            for (int i = 345; i <= 375; i += 15)
+            {
+                if (!jika_salah_satu_terisi_maka_harus_terisi(i, new[] { i - 11, i - 10, i - 8, i - 7, i - 5, i - 4, i - 2, i - 1 }))
+                {
+                    tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "5.06", 61);
+                }
+
+                if (!jika_salah_satu_terisi_maka_harus_terisi(i+1, new[] { i - 11, i - 10, i - 8, i - 7, i - 5, i - 4, i - 2, i - 1 }))
+                {
+                    tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "5.06", 61);
+                }
+
+                if (!harus_terisi_berikut(i, new[] { "1", "2", "3", "4", "5", "6", "7" }))
+                {
+                    tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "5.06", 61);
+                }
+
+                if (!harus_terisi_berikut(i + 1, new[] { "1", "2", "3", "4", "5", "6", "7" }))
+                {
+                    tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "5.06", 61);
+                }
+            }
+        }
+
+        //no urut 63
+        void cek_507()
+        {
+            if (!pengecekan_nilai_produksi_utama(377, new[] { 303, 313, 323, 347, 362 }, 5))
+            {
+                tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "5.07", 63);
+            }
+        }
+
+        //no urut 64
+        void cek_508()
+        {
+            if (!jika_terisi_maka_harus_terisi(378, 377))
+            {
+                tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "5.08", 64);
+            }
+
+            if (!jika_terisi_maka_harus_terisi(379, 377))
+            {
+                tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "5.08", 64);
+            }
+        }
+
+        //no urut 65
+        void cek_509()
+        {
+            if (!harus_terisi_berikut(380, new[] {"1", "2"}))
+            {
+                tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "5.09", 65);
+            }
+        }
+
+        //no urut 66
+        void cek_510()
+        {
+            if (!jika_terisi_maka_harus_terisi(377, 381))
+            {
+                tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "5.10", 66);
+            }
+            else
+            {
+                if (!harus_terisi_berikut(381, new[] { "1", "2" }))
+                {
+                    tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "5.10", 66);
+                }
+            }
+        }
+
+        //no urut 67
+        void cek_511()
+        {
+            if (!jika_salah_satu_terisi_maka_harus_terisi(382, new[] { 288, 289, 290, 291, 297, 298, 299, 300, 307, 308, 309, 310, 317, 318, 319, 320, 327, 328, 329, 330, 335, 338, 341, 344, 350, 353, 356, 359, 365, 368, 371, 374 }))
+            {
+                tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "5.11", 67);
+            }
+            else
+            {
+                if (!harus_terisi_berikut(382, new[] { "1", "2" }))
+                {
+                    tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "5.11", 67);
                 }
             }
         }
@@ -1327,7 +1423,12 @@ namespace Edco_Sutas
         //pengecekan dilakukan antara lain
         //harus terisi jika ada isian minimal satu komoditas pada kategori tersebut
         //isian harus terdapat pada daftar komoditas yang dikelola
-        bool pengecekan_nilai_produksi_utama(int text_komoditas, int[] text_list_komoditas)
+
+        //parameter jenis komoditas digunakan untuk mengetahui komoditas mana yang sedang dicek
+        //hal ini karena kondisi kuesioner di setiap komoditas yang menyertakan daftar2 komoditas default
+        //yang tidak ditulis sebagai "textview" misal KARET (3109)
+        //jika tidak ingin memasukkan identitas komoditas, dikosongkan saja
+        bool pengecekan_nilai_produksi_utama(int text_komoditas, int[] text_list_komoditas, int jenis_komoditas=0)
         {
             bool hasil = true;
 
@@ -1342,6 +1443,25 @@ namespace Edco_Sutas
                 {
                     daftar_komoditas.Add(this.Controls.Find(text, true)[0].Text);
                     is_ada_daftar = true;
+                }
+            }
+
+            if (jenis_komoditas == 5)
+            {
+                int[] yang_dicek = new[] { 292, 301, 345 };
+                String[] yang_dikode = new[] { "3109", "3111", "3210" };
+
+                for(int i=0 ; i<3; ++i)
+                {
+                    int current_cek = yang_dicek[i];
+                    String text = "txt" + (current_cek);
+
+                    if (this.Controls.Find(text, true)[0].Text.Length > 0)
+                    {
+                        daftar_komoditas.Add(yang_dikode[i]);
+                        is_ada_daftar = true;
+                    }
+
                 }
             }
 
