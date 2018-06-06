@@ -1419,6 +1419,67 @@ namespace Edco_Sutas
         }
 
 
+
+        //68, 69
+        void cek_601()
+        {
+            List<String> komoditas = new List<string>();
+
+            for (int i = 383; i <= 419; i += 9)
+            {
+                String text = "txt" + (i);
+                SQLquery = "select*from m_kom where KodeKom='" + this.Controls.Find(text, true)[0].Text + "' and FlagSubsektor='61'";
+                if (new KoneksiAccess().cekDataSQL(SQLquery) == false)
+                {
+                    tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "6.01", 68);
+                }
+
+                if (komoditas.Contains(this.Controls.Find(text, true)[0].Text))
+                {
+                    tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "6.01", 69);
+                }
+                else
+                {
+                    komoditas.Add((this.Controls.Find(text, true)[0].Text);
+                }
+            }
+        }
+
+
+        //70
+        void cek_602()
+        {
+            for (int i = 383; i <= 419; i += 9)
+            {
+                if (!jika_terisi_maka_harus_terisi(i, i + 1) || jika_terisi_maka_harus_terisi(i, i + 2))
+                {
+                    tambah_hasil_edit(txt1.Text, txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt9.Text, "6.02", 70);
+                }
+            }
+        }
+
+
+        //71, 72, 73
+        void cek_603()
+        {
+            String identitas_prov = "txt1";
+            String identitas_kab = "txt2";
+
+            String identitas = this.Controls.Find(identitas_prov, true)[0].Text + this.Controls.Find(identitas_kab, true)[0].Text;
+            
+            for (int i = 386; i <= 413; i += 9)
+            {
+                String current_prov = "txt" + (i);
+                String current_kab = "txt" + (2);
+
+                String current_wil = this.Controls.Find(current_prov, true)[0].Text + this.Controls.Find(current_kab, true)[0].Text;
+            
+            }
+
+            //420
+        }
+
+
         //digunakan untuk mengecek kolom komoditas yang memiliki nilai produksi paling besar selama setahun
         //pengecekan dilakukan antara lain
         //harus terisi jika ada isian minimal satu komoditas pada kategori tersebut
